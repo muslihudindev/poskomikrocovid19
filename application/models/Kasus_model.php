@@ -96,17 +96,22 @@ class Kasus_model extends CI_Model {
             if ($query->num_rows() > 0) {
                 return 3;
             } else {
-                $sql2 = "INSERT INTO keterangan (ket,jml) VALUES (" . $rw . "," . $rt . "," . $kasus . ",'" . $warna . "')";
+                $sql2 = "INSERT INTO keterangan (ket,jml) VALUES (" . $ket . "," . $jml . ")";
                 $this->db->query($sql2);
                 return TRUE;
             }
         }
         if ($action == "edit") {
             $error = 0;
-            if (!isset($postData["kasus"])) {
+            if (!isset($postData["ket"]) || empty($postData["ket"])) {
                 $error = 2;
             } else {
-                $kasus = $postData["kasus"];
+                $ket = $this->db->escape(strip_tags($postData["ket"]));
+            }
+            if (!isset($postData["jml"])) {
+                $error = 2;
+            } else {
+                $jml = $postData["jml"];
             }
             if (!isset($postData["id"]) || empty($postData["id"])) {
                 $error = 3;
@@ -116,7 +121,7 @@ class Kasus_model extends CI_Model {
             if ($error == 2) {
                 return $error;
             }
-            $sql2 = "UPDATE keterangan SET kasus = " . $kasus . ", warna = '" . $warna . "' WHERE id = " . $id;
+            $sql2 = "UPDATE keterangan SET ket = " . $ket . ", jml = '" . $jml . "' WHERE id = " . $id;
             $this->db->query($sql2);
             return TRUE;
         }

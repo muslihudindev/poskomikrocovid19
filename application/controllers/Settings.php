@@ -47,7 +47,7 @@ class Settings extends CI_Controller {
 			}
 			if ($page == "add") {
 				$this->load->view('header');
-				$this->load->view('settings/keterangan_add', $data);
+				$this->load->view('settings/keterangan_add');
 				$this->load->view('footer');
 			} elseif ($page == "edit") {
 				if ($adminid == null) {
