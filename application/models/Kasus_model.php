@@ -96,7 +96,7 @@ class Kasus_model extends CI_Model {
             if ($query->num_rows() > 0) {
                 return 3;
             } else {
-                $sql2 = "INSERT INTO keterangan (rw,rt,kasus,warna) VALUES (" . $rw . "," . $rt . "," . $kasus . ",'" . $warna . "')";
+                $sql2 = "INSERT INTO keterangan (ket,jml) VALUES (" . $rw . "," . $rt . "," . $kasus . ",'" . $warna . "')";
                 $this->db->query($sql2);
                 return TRUE;
             }
