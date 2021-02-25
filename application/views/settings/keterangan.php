@@ -19,7 +19,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
     <div class="card-block">
         <div class="table-responsive">
-            <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+            <table class="table table-bordered" width="100%" id="dataTable2" cellspacing="0">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -46,9 +46,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <form method="POST" action="" style="display:inline;"><input type="hidden" name="action" value="delete"><input type="hidden" name="id" value="<?= $v["id"] ?>"><input type="submit" class="btn btn-primary" onclick="return confirm('Apakah anda yakin akan menghapus data ini ?')" value="Delete"></form> <a href="<?= base_url() ?>settings/keterangan/edit/<?= $v["id"] ?>"><button class="btn btn-primary">Edit</button></a>
                             </td>
                         </tr>
+                        <?php foreach ($this->Kasus_model->getDetailKeterangan($v["id"]) as $v2) { ?>
+                            <tr>
+                                <td align="center"></td>
+                                <td align="center"> - <?= $v2["ket"] ?></td>
+                                <td align="center"><?= $v2["jml"] ?></td>
+                                <td>
+                                    <form method="POST" action="<?= base_url() ?>settings/keterangan_detail" style="display:inline;"><input type="hidden" name="action" value="delete"><input type="hidden" name="id" value="<?= $v2["id"] ?>"><input type="submit" class="btn btn-primary" onclick="return confirm('Apakah anda yakin akan menghapus data ini ?')" value="Delete"></form> <a href="<?= base_url() ?>settings/keterangan_detail/edit/<?= $v2["id"] ?>"><button class="btn btn-primary">Edit</button></a>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     <?php } ?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#dataTable2').dataTable({
+            "ordering": false
+        });
+    });
+</script>

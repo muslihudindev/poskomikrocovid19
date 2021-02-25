@@ -145,7 +145,19 @@ class Kasus_model extends CI_Model {
         } else {
             return array();
         }
+    }
+
+    public function getDetailKeterangan($id)
+    {
+        $sql = "SELECT * FROM keterangan_detail WHERE id_keterangan = " . $this->db->escape($id);
+        $query = $this->db->query($sql);
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return array();
+        }
     }        
+
 
 
 }
