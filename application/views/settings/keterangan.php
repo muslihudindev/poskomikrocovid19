@@ -40,7 +40,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <?php foreach ($keterangan as $v) { ?>
                         <tr>
                             <td align="center"><?= $v["id"] ?></td>
-                            <td align="center"><?= $v["ket"] ?></td>
+                            <td align="center"><?= $v["ket"] ?> <a href="<?= base_url() ?>settings/keterangan_detail/add/<?= $v["id"] ?>"><button class="btn btn-primary float-right">+</button></a></td>
                             <td align="center"><?= $v["jml"] ?></td>
                             <td>
                                 <form method="POST" action="" style="display:inline;"><input type="hidden" name="action" value="delete"><input type="hidden" name="id" value="<?= $v["id"] ?>"><input type="submit" class="btn btn-primary" onclick="return confirm('Apakah anda yakin akan menghapus data ini ?')" value="Delete"></form> <a href="<?= base_url() ?>settings/keterangan/edit/<?= $v["id"] ?>"><button class="btn btn-primary">Edit</button></a>

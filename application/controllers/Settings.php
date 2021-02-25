@@ -66,6 +66,35 @@ class Settings extends CI_Controller {
 		}
 	}
 
+	public function keterangan_detail($page = null, $adminid = 0)
+	{
+		if ($this->Admin_model->verifyUser()) {
+			if ($this->input->post()) {
+				$postData = $this->input->post();
+				$this->Kasus_model->updateKeterangan_detail($postData, $postData["action"]);
+			}
+			if ($page == "add") {
+				if ($adminid == null) {
+					redirect(base_url(), 'auto');
+				}
+				$data["id_keterangan"] = $adminid;
+				$this->load->view('header');
+				$this->load->view('settings/keterangan_detail_add', $data);
+				$this->load->view('footer');
+			} elseif ($page == "edit") {
+				if ($adminid == null) {
+					redirect(base_url(), 'auto');
+				}
+				$data["result"] = $this->Kasus_model->getKeterangan_detail($adminid);
+				$this->load->view('header');
+				$this->load->view('settings/keterangan_detail_edit', $data);
+				$this->load->view('footer');
+			} else {
+				redirect('/settings/keterangan', 'refresh');
+			}
+		}
+	}	
+
 	public function admins($page=null, $adminid=0) {
 		if ($this->Admin_model->verifyUser()) {
 			if ($this->input->post()){

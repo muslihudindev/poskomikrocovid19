@@ -147,6 +147,84 @@ class Kasus_model extends CI_Model {
         }
     }
 
+    public function updateKeterangan_detail($postData = null, $action = null)
+    {
+        if ($action == "add") {
+            $error = 0;
+            if (!isset($postData["id_keterangan"]) || empty($postData["id_keterangan"])) {
+                $error = 2;
+            } else {
+                $id_keterangan = $this->db->escape(strip_tags($postData["id_keterangan"]));
+            }
+            if (!isset($postData["ket"]) || empty($postData["ket"])) {
+                $error = 2;
+            } else {
+                $ket = $this->db->escape(strip_tags($postData["ket"]));
+            }
+            if (!isset($postData["jml"])) {
+                $error = 2;
+            } else {
+                $jml = $postData["jml"];
+            }
+            if ($error == 2) {
+                return $error;
+            }
+            $sql = "SELECT * FROM keterangan_detail WHERE ket = " . $ket;
+            $query = $this->db->query($sql);
+            if ($query->num_rows() > 0) {
+                return 3;
+            } else {
+                $sql2 = "INSERT INTO keterangan_detail (id_keterangan,ket,jml) VALUES (" . $id_keterangan . "," . $ket . "," . $jml . ")";
+                $this->db->query($sql2);
+                return TRUE;
+            }
+        }
+        if ($action == "edit") {
+            $error = 0;
+            if (!isset($postData["ket"]) || empty($postData["ket"])) {
+                $error = 2;
+            } else {
+                $ket = $this->db->escape(strip_tags($postData["ket"]));
+            }
+            if (!isset($postData["jml"])) {
+                $error = 2;
+            } else {
+                $jml = $postData["jml"];
+            }
+            if (!isset($postData["id"]) || empty($postData["id"])) {
+                $error = 3;
+            } else {
+                $id = $this->db->escape(strip_tags($postData["id"]));
+            }
+            if ($error == 2) {
+                return $error;
+            }
+            $sql2 = "UPDATE keterangan_detail SET ket = " . $ket . ", jml = '" . $jml . "' WHERE id = " . $id;
+            $this->db->query($sql2);
+            return TRUE;
+        }
+        if ($action == "delete") {
+            $admin_group = $this->db->escape(strip_tags((int)$postData["id"]));
+            $sql2 = "DELETE FROM keterangan_detail WHERE id = " . $admin_group;
+            $this->db->query($sql2);
+            return TRUE;
+        }
+    }
+
+    public function getKeterangan_detail($additional = "")
+    {
+        if ($additional !== "") {
+            $additional = "WHERE id = " . $this->db->escape($additional);
+        }
+        $sql = "SELECT * FROM keterangan_detail " . $additional;
+        $query = $this->db->query($sql);
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return array();
+        }
+    }
+
     public function getDetailKeterangan($id)
     {
         $sql = "SELECT * FROM keterangan_detail WHERE id_keterangan = " . $this->db->escape($id);
