@@ -78,25 +78,20 @@ class Kasus_model extends CI_Model {
     {
         if ($action == "add") {
             $error = 0;
-            if (!isset($postData["rw"]) || empty($postData["rw"])) {
+            if (!isset($postData["ket"]) || empty($postData["ket"])) {
                 $error = 2;
             } else {
-                $rw = $this->db->escape(strip_tags($postData["rw"]));
+                $ket = $this->db->escape(strip_tags($postData["ket"]));
             }
-            if (!isset($postData["rt"]) || empty($postData["rt"])) {
+            if (!isset($postData["jml"])) {
                 $error = 2;
             } else {
-                $rt = $this->db->escape(strip_tags($postData["rt"]));
-            }
-            if (!isset($postData["kasus"])) {
-                $error = 2;
-            } else {
-                $kasus = $postData["kasus"];
+                $jml = $postData["jml"];
             }
             if ($error == 2) {
                 return $error;
             }
-            $sql = "SELECT * FROM keterangan WHERE rt = " . $rt;
+            $sql = "SELECT * FROM keterangan WHERE ket = " . $ket;
             $query = $this->db->query($sql);
             if ($query->num_rows() > 0) {
                 return 3;
