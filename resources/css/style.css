@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../image/background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
+    overflow: auto;
+    margin: 0;
+}
+
+header{
+    display: inline;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 100px;
+    padding: 5%;
+    /*height: 300px;  Should be removed. Only for demonstration */
+
+    border: 1px solid rgb(0, 0, 0)!important;
+    border-radius: 16px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.div-color-green {
+    background-color: green;
+    width: 5px;
+    border: 10px solid green;
+}
+
+.div-color-yellow {
+    background-color: yellow;
+    width: 5px;
+    border: 10px solid yellow;
+}
+
+.div-color-orange {
+    background-color: orange;
+    width: 5px;
+    border: 10px solid orange;
+}
+
+.div-color-red {
+    background-color: red;
+    width: 5px;
+    border: 10px solid red;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 5px;
+    margin: 0;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+nav .logo {
+    padding: 15px;
+}
+
+nav li {
+    display: inline;
+    list-style-type: none;
+    margin-left: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #20AAE2;
+}
+
+nav a:hover {
+    font-weight: 550;
+}
+
+.page-container {
+    background-color: white;
+    border-radius: 15px;
+    margin: 25px;    
+    overflow: auto;
+}
+
+.card {
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.content {
+    background-color: white;
+    width: 75%;
+    padding-left:20px;
+    padding-bottom:20px;
+    overflow: auto;
+    float: left;
+}
+
+.post-container {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    max-height: 200px;
+    overflow: hidden;
+    padding: 10px;    
+}
+
+
+.post-container img {
+    width: 190px;
+    height: 190px;
+    max-height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+
+
+.post-content {
+    margin-left: 15px;
+    /* width: 75%; */
+}
+
+.post-content h3 {
+    margin-top: 0px;
+    color: #20AAE2;
+}
+
+.post-content p {
+    text-align: justify;
+}
+
+aside {
+    width: 25%;
+    float: right;
+    padding-left: 25px;
+    padding-right:20px;
+}
+
+aside img {
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-position: center;
+    object-fit: cover;
+}
+
+aside h3 {
+    color: #20AAE2;
+    font-weight: 400;
+    text-align: center;
+    margin:0;
+}
+
+.author header {
+    text-align: center;
+}
+.author section p{
+    font-size: 14px;
+    text-align: justify;
+}
+
+.readmore{
+    width: 20%;
+    margin: auto;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) ;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    margin-top: 2%;
+    border-radius: 10px;
+    background-color: rgba(32, 171, 226, 0.658);        
+}
+
+footer {
+    padding: 20px;
+    color: white;
+    background-color: #20AAE2;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+    /* nav ul {
+        position: sticky;
+        top: 0;
+    } */
+    .page-container{
+        margin:2%;
+    }
+    .content,aside{
+        width: 100%;
+        padding:0;
+    }
+    .post-container {
+        margin: auto ;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        overflow: show;
+        padding: 10px;
+        text-align: center;
+        overflow-y: scroll;
+        max-height: 400px;
+    }
+    .post-container img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+        object-position: center;
+        overflow: show;
+        border-radius: 5px;
+        
+    }
+    .post-content {
+        margin-left: 0px;
+        max-height: 200px;
+        width: 100%;
+    }
+    .content article{
+        width: 90%;
+        text-align: center;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .author{
+        width: 90%;
+        text-align: center;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 5%;
+    }
+
+    .readmore{
+        display: none;
+        
+    }
+    
+}
+
+/* COL FORMAT */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
