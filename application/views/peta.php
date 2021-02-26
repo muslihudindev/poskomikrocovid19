@@ -15,7 +15,6 @@
                 Sistem Informasi Peta Penyebaran Kasus COVID-19 Kelurahan Bener
             </div>
             <ul>
-                <li><a href="#">Beranda</a></li>
                 <li><a href="#">Tentang Aplikasi</a></li>
                 <li><a href="<?=base_url()?>/login">Login</a></li>
             </ul>
@@ -107,24 +106,18 @@
                 <article class="card-simple" id="data-rt-rw">
                     <!-- DATA RT RW -->
                     <div class="container">
+                        <?php foreach ($data_rw as $row): ?>
                         <div class="box">
-                            <div class="text-rw">RW I</div>
+                            <div class="text-rw">RW <?php echo $row['rw'] ?></div>
                             <hr>
                             <div><i class="fas fa-square" style="color: green;"></i> 4 RT</div>
                             <div><i class="fas fa-square" style="color: yellow;"></i> 0</div>
                             <div><i class="fas fa-square" style="color: orange;"></i> 0</div>
                             <div><i class="fas fa-square" style="color: red;"></i> 0</div>
                         </div>
-                        <div class="box">
-                            <div class="text-rw">RW II</div>
-                            <hr>
-                            <div><i class="fas fa-square" style="color: green;"></i> 4 RT</div>
-                            <div><i class="fas fa-square" style="color: yellow;"></i> 0</div>
-                            <div><i class="fas fa-square" style="color: orange;"></i> 0</div>
-                            <div><i class="fas fa-square" style="color: red;"></i> 0</div>
-                        </div>
+                        <?php endforeach ?>
                     </div>
-                    <div class="container">
+                    <!-- <div class="container">
                         <div class="box">
                             <div class="text-rw">RW III</div>
                             <hr>
@@ -176,7 +169,7 @@
                             <div>0</div>
                             <div>0</div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- DATA RT RW -->
                 </article>
 
