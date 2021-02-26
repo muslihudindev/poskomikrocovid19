@@ -81,6 +81,16 @@ class Peta extends CI_Controller {
 		FROM
 		keterangan_detail
 		")->result_array();
+
+		$data['koordinat_peta'] = $this->db->query("
+		SELECT
+		coords,
+		rt,
+		rw,
+		kasus
+		FROM
+		datasebarancovid
+		")->result_array();
 		
 		$this->load->view('peta', $data);
 	}
@@ -111,7 +121,7 @@ class Peta extends CI_Controller {
 				rt
 			FROM
 				datasebarancovid
-			WHERE rw=".$rw." AND kasus>=1 AND kasus<=5
+			WHERE rw=".$rw." AND kasus>10
 			")->result_array();
 		}
 
