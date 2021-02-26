@@ -69,13 +69,12 @@
                                     </div>
                                 </div>
                                 <div class="box">
-                                    <div>KASUS POSITIF :</div>
-                                    <div>SEMBUH :</div>
-                                    <div>MENINGGAL : </div>
-                                    <div>AKIF :</div>
-                                    <div>DIRAWAT DI RS :</div>
-                                    <div>ISOLASI MANDIRI :</div>
-                                    <div>ISOLASI SHELTER :</div>
+                                    <?php foreach ($keterangan as $row): ?>
+                                        <div><?php echo $row['ket'] ?> : <?php echo $row['jml'] ?></div>
+                                    <?php endforeach ?>
+                                    <?php foreach ($keterangan_detail as $row): ?>
+                                        <div><?php echo $row['ket'] ?> : <?php echo $row['jml'] ?></div>
+                                    <?php endforeach ?>
                                 </div>
                             </div>
 
@@ -105,15 +104,22 @@
 
                 <article class="card-simple" id="data-rt-rw">
                     <!-- DATA RT RW -->
-                    <div class="container">
+                    <div class="container-rw">
                         <?php foreach ($data_rw as $row): ?>
+                        <?php 
+                            $CI =& get_instance();
+                            
+                            $kuning = $row['kasus_kuning']>0 ? $row['kasus_kuning'].' RT ('.$CI->GetJumlahRTTerdampak($row['rw'],'kuning').')' : 0;
+                            $oranye = $row['kasus_oranye']>0 ? $row['kasus_oranye'].' RT ('.$CI->GetJumlahRTTerdampak($row['rw'],'oranye').')' : 0;
+                            $merah = $row['kasus_merah']>0 ? $row['kasus_merah'].' RT ('.$CI->GetJumlahRTTerdampak($row['rw'],'merah').')' : 0;
+                        ?>
                         <div class="box">
-                            <div class="text-rw">RW <?php echo $row['rw'] ?></div>
+                            <div class="text-rw">RW <?php echo $row['rw'] ?> | <?php echo $row['jml_rt'] ?> RT</div>
                             <hr>
-                            <div><i class="fas fa-square" style="color: green;"></i> 4 RT</div>
-                            <div><i class="fas fa-square" style="color: yellow;"></i> 0</div>
-                            <div><i class="fas fa-square" style="color: orange;"></i> 0</div>
-                            <div><i class="fas fa-square" style="color: red;"></i> 0</div>
+                            <div><i class="fas fa-square" style="color: green;"></i> <?php echo $row['jml_rt_0_kasus'] ?> RT</div>
+                            <div><i class="fas fa-square" style="color: yellow;"></i> <?php echo $kuning ?></div>
+                            <div><i class="fas fa-square" style="color: orange;"></i> <?php echo $oranye ?></div>
+                            <div><i class="fas fa-square" style="color: red;"></i> <?php echo $merah ?></div>
                         </div>
                         <?php endforeach ?>
                     </div>
