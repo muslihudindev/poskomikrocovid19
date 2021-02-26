@@ -34,7 +34,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
             <div class="card-block">
                 <div class="row">
-                    <div class="col-sm-8">
+                    <div class="col-sm-12">
                         <canvas id="myBarChart" width="100" height="50"></canvas>
                     </div>
                     

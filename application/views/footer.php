@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?=base_url()?>resources/vendor/datatables/dataTables.bootstrap4.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="<?=base_url()?>resources/js/sb-admin.min.js"></script>
+    <script src="<?=base_url()?>resources/js/sb-admin.js"></script>
 
 </body>
 

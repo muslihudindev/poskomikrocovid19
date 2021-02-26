@@ -245,4 +245,26 @@ class Admin_model extends CI_Model {
         	return TRUE;
         }
 
+
+        public function getDatasebaran()
+        {
+            $sql = "SELECT rw,sum(kasus) AS kasus FROM datasebarancovid GROUP BY rw ORDER BY rw";
+            $query = $this->db->query($sql);
+            return $query->result_array();
+        }
+
+        public function getDatasebaranDetail()
+        {
+            $sql = "SELECT * FROM datasebarancovid ORDER BY rt";
+            $query = $this->db->query($sql);
+            return $query->result_array();
+        }
+
+        public function getKeterangan()
+        {
+            $sql = "SELECT * FROM keterangan";
+            $query = $this->db->query($sql);
+            return $query->result_array();
+        }
+
 }
