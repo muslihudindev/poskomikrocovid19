@@ -23,7 +23,7 @@ class Login extends CI_Controller {
 				 } else {
 				 	$auth = $this->Admin_model->adminLogin($postData);
 					if ($auth == true) {
-						redirect(base_url(), "auto");
+						redirect('start', "auto");
 					} else {
 						$data["error"] = 2;
 						$this->load->view('login', $data);
@@ -35,7 +35,7 @@ class Login extends CI_Controller {
 				$postData = $this->input->post();
 				$auth = $this->Admin_model->adminLogin($postData);
 				if ($auth == true) {
-					redirect(base_url(), "auto");
+					redirect('start', "auto");
 				} else {
 					$data["error"] = 2;
 					$this->load->view('login', $data);

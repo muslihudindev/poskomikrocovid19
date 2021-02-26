@@ -30,25 +30,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <!-- Example Bar Chart Card -->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-bar-chart"></i> Bar Chart Example
+                <i class="fa fa-bar-chart"></i> Data Sebaran Covid 19
             </div>
             <div class="card-block">
                 <div class="row">
                     <div class="col-sm-8">
                         <canvas id="myBarChart" width="100" height="50"></canvas>
                     </div>
-                    <div class="col-sm-4 text-center">
-                        <hr class="hidden-sm-up">
-                        <div class="h4 mb-0 text-primary">$34,693</div>
-                        <div class="small text-muted">YTD Revenue</div>
-                        <hr>
-                        <div class="h4 mb-0 text-warning">$18,474</div>
-                        <div class="small text-muted">YTD Expenses</div>
-                        <hr>
-                        <div class="h4 mb-0 text-success">$16,219</div>
-                        <div class="small text-muted">YTD Margin</div>
-                        <hr>
-                    </div>
+                    
                 </div>
             </div>
             <div class="card-footer small text-muted">
