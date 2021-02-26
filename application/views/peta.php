@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/flexbox.css">
+    <link rel="stylesheet" href="<?=base_url()?>/resources/css/style.css">
+    <link rel="stylesheet" href="<?=base_url()?>/resources/css/flexbox.css">
     <title>Sistem Informasi Penyebaran Kasus COVID-19 | Kelurahan Bener</title>
 </head>
 
@@ -17,6 +17,7 @@
             <ul>
                 <li><a href="#">Beranda</a></li>
                 <li><a href="#">Tentang Aplikasi</a></li>
+                <li><a href="<?=base_url()?>/login">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -30,7 +31,7 @@
 
                             <div class="box col-10" style="background-color: white;">
                                 <div id="image-map" class="center"> 
-                                    <img src="assets/image/kelurahan-bener-peta3.png" usemap="#image-map" class="map">
+                                    <img src="<?=base_url()?>/resources/image/kelurahan-bener-peta3.png" usemap="#image-map" class="map">
                                     <map name="image-map">
                                         <area id="id1" target="" alt="RT 1" title="RT 1" href="" coords="23,9,32,15,37,28,40,45,47,62,52,67,50,75,71,108,71,118,23,117,22,105,27,87,27,55,22,47,19,20" shape="poly">
                                         <area id="id2" target="" alt="RT 2" title="RT 2" href="" coords="24,119,71,119,73,143,72,155,80,162,81,175,103,194,98,207,100,220,110,242,84,236,48,235,34,233,42,214,42,190,34,168,24,140" shape="poly">
@@ -190,9 +191,9 @@
 </html>
 
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-<script src="assets/js/script.js"></script>
-<script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery.maphilight.min.js"></script>
+<script src="<?=base_url()?>/resources/js/script.js"></script>
+<script type="text/javascript" src="<?=base_url()?>/resources/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="<?=base_url()?>/resources/js/jquery.maphilight.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 	    var data = {};
