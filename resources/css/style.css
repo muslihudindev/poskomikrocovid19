@@ -27,7 +27,7 @@ header{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 70%;
 }
 
 /* Create two equal columns that floats next to each other */
@@ -282,3 +282,10 @@ footer {
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
+
+#map {
+    position:relative
+}
+.map_title {
+    position:absolute;    
+}
