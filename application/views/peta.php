@@ -30,10 +30,10 @@
 
                             <div class="box col-10" style="background-color: white;">
                                 <div id="image-map" class="center"> 
-                                    <img src="<?=base_url()?>/resources/image/kelurahan-bener-peta3.png" usemap="#image-map" class="map">
+                                    <img src="<?=base_url()?>/resources/image/kelurahan-bener-peta.png" usemap="#image-map" class="map">
                                     <map name="image-map">
                                     <?php foreach ($koordinat_peta as $row): ?>
-                                        <area id="id<?php echo $row['rt'] ?>" target="" alt="RT <?php echo $row['rt'] ?>" title="RT <?php echo $row['rt'] ?> | RW <?php echo $row['rw'] ?> " href="" coords="<?php echo $row['coords'] ?>" shape="poly">
+                                        <area id="id<?php echo $row['rt'] ?>" target="" alt="RT <?php echo $row['rt'] ?>" title="RT <?php echo $row['rt'] ?> | RW <?php echo $row['rw'] ?> " href="" coords="<?php echo $row['coords'] ?>" data-name="RT <?php echo $row['rt'] ?>" shape="poly">
                                     <?php endforeach ?>
                                     </map> 
                                 </div>
@@ -207,5 +207,5 @@
         data<?php echo $row['rt'] ?>.strokeWidth = 2;
 	    $('#id<?php echo $row['rt'] ?>').data('maphilight', data<?php echo $row['rt'] ?>).trigger('alwaysOn.maphilight');
         <?php endforeach ?>
-	 });
+     });
 </script>
