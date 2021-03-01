@@ -16,6 +16,7 @@ class Settings extends CI_Controller {
 			if ($this->input->post()) {
 				$postData = $this->input->post();
 				$this->Kasus_model->updateKasus($postData, $postData["action"]);
+				redirect('/settings/kasus', 'refresh');
 			}
 			if ($page == "add") {
 				$this->load->view('header');
@@ -44,6 +45,7 @@ class Settings extends CI_Controller {
 			if ($this->input->post()) {
 				$postData = $this->input->post();
 				$this->Kasus_model->updateKeterangan($postData, $postData["action"]);
+				redirect('/settings/keterangan', 'refresh');
 			}
 			if ($page == "add") {
 				$this->load->view('header');
@@ -72,6 +74,7 @@ class Settings extends CI_Controller {
 			if ($this->input->post()) {
 				$postData = $this->input->post();
 				$this->Kasus_model->updateKeterangan_detail($postData, $postData["action"]);
+				redirect('/settings/keterangan', 'refresh');
 			}
 			if ($page == "add") {
 				if ($adminid == null) {
